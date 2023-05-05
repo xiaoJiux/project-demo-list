@@ -1,0 +1,49 @@
+/**
+ * showcase通用样式
+ */
+
+* {
+    -webkit-user-select: none;
+}
+.content{
+    position: relative;
+    height: 50vh;
+}
+
+/*
+ * 需要定制位置
+ */
+
+/* .minirefresh-wrap { */
+/*     top: 45px; */
+/* } */
+
+.minirefresh-scroll {
+    background: #FFFFFF;
+}
+.data-list{
+    margin: 0;
+    padding: 0;
+}
+
+.upwrap-tips{
+    margin: 0;
+    padding: 0;
+}
+.data-list div{
+    height: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

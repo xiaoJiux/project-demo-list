@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>base list</title>
+    <link rel="stylesheet" href="./minirefresh.css" />
+    <link rel="stylesheet" href="./common.css" />
+    <style>
+        header {
+            height: 40vh;
+            width: 100vw;
+            background-color: aquamarine;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        *::-webkit-scrollbar {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div id="minirefresh" class="minirefresh-wrap">
+
+            <div class="minirefresh-scroll">
+
+                <ul class="data-list" id="listData">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="./jquery.js"></script>
+    <script type="text/javascript" src="./minirefresh.js"></script>
+    <script>
+        // var appendTestData = Common.appendTestData,
+        let requestDelayTime = 600
+        let dom = ``
+        let $listData = $("#listData")
+        for (let i = 0; i < 10; i++) {
+            dom += `<div>${i}</div>`
+        }
+        //endDownLoading   true#停止上拉加载  false#可以继续上拉加载
+        let miniRefresh = new MiniRefresh({
+            container: '#minirefresh',
+            down: {
+                callback: function () {
+                    setTimeout(function () {
+                        // 每次下拉刷新后，上拉的状态会被自动重置
+                        //清除原来容器内容
+                        $listData.html('')
+                        $listData.append(dom)
+                        miniRefresh.endDownLoading(true)
+                    }, requestDelayTime)
+                }
+            },
+            up: {
+                isAuto: true,
+                callback: function () {
+                    setTimeout(function () {
+
+                        $listData.append(dom)
+                        miniRefresh.endUpLoading(true)
+                    }, requestDelayTime)
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<ul class="numCount">
+    <li>
+        <div>
+            <div><span class="numCX" data-startVal="0" data-endVal="363567" data-speed="4" data-decimals="0" id="mumC1">0</span>
+            </div>
+        </div>
+    </li>
+</ul>
+<script src="count.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+    $ (function () {
+        let countCXArr = [];
+        let countCX = function () {
+            $ ('.numCount').each (function ( i, dom ) {
+                if ( countCXArr[i] && countCXArr[i] === true ) {
+                    return;
+                }
+                let sT;
+                let ncTop;
+                sT = $ (window).scrollTop ();
+                ncTop = $ (dom).offset ().top;
+                let id, decimals, startVal, endVal, duration;
+                if ( sT > ncTop - $ (window).height () && sT < ncTop ) {
+                    $ (dom).find ('.numCX').each (function () {
+                        id = $ (this).attr ('id');
+                        decimals = $ (this).attr ('data-decimals'),
+                            startVal = $ (this).attr ('data-startVal'),
+                            endVal = $ (this).attr ('data-endVal'),
+                            duration = $ (this).attr ('data-speed');
+                        new CountUp (id, startVal, endVal, decimals, duration, {
+                            useEasing: true,//效果
+                            separator: ''//数字分隔符
+                        }).start ();// target：目标元素id, startVal：你想要开始的值, endVal：你想要到达的值, decimals：小数位数，默认值为0, duration：动画持续时间为秒，默认值为2, options：选项的可选对象
+                        countCXArr[i] = true;
+                    })
+
+                }
+            })
+        }
+        countCX ();
+        $ (window).on ("scroll", function () {
+            countCX ();
+        })
+    });
+</script>
+</body>

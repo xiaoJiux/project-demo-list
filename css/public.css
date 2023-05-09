@@ -2,118 +2,118 @@
 
 /* flex */
 .flex-wrap {
-	display: flex;
-	flex-wrap: wrap;
+		display: flex;
+		flex-wrap: wrap;
 }
 
 .flex {
-	display: flex;
+		display: flex;
 }
 
 .j-s {
-	justify-content: space-between;
+		justify-content: space-between;
 }
 
 .j-a {
-	justify-content: space-around;
+		justify-content: space-around;
 }
 
 .j-c {
-	justify-content: center;
+		justify-content: center;
 }
 
 .flex-col {
-	flex-direction: column;
+		flex-direction: column;
 }
 
 .a-c {
-	align-items: center;
+		align-items: center;
 }
 
 .a-e {
-	align-items: flex-end;
+		align-items: flex-end;
 }
 
 .a-s {
-	align-content: space-between;
+		align-content: space-between;
 }
 
 /* 文字类 */
 
 .text-center {
-	text-align: center;
+		text-align: center;
 }
 
 /* 居中 */
 .flex-center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 }
 
 /* 兼容性较差，低版本浏览器可能不支持 */
 .grid-center {
-	display: grid;
-	place-items: center;
+		display: grid;
+		place-items: center;
 }
 
 /* 省略号 */
 .ellipsis-1 {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 1;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
 }
 
 .ellipsis-2 {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 2;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
 }
 
 .ellipsis-3 {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 3;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 3;
 }
 
 /* 优先级 */
 .z-1 {
-	z-index: 1;
+		z-index: 1;
 }
 
 .z-10 {
-	z-index: 10;
+		z-index: 10;
 }
 
 .z-100 {
-	z-index: 100;
+		z-index: 100;
 }
 
 .z-1000 {
-	z-index: 1000;
+		z-index: 1000;
 }
 
 /* 最高优先级 */
 .z-top {
-	z-index: 2147483647;
+		z-index: 2147483647;
 }
 
 /* 定位 */
 .p-r {
-	position: relative;
+		position: relative;
 }
 
 .p-a {
-	position: absolute;
+		position: absolute;
 }
 
 .p-f {
-	position: fixed;
+		position: fixed;
 }
 

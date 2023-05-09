@@ -27,3 +27,29 @@ router.post('/users', koaBody(), (ctx) => {
 });
 ```
 
+
+
+#### koa-router
+
+```js
+const Router = require ("koa-router")
+const router = new Router ()
+
+router.get ('/', ctx => {
+    console.log (ctx.query)
+    ctx.body = '6'//返回参数
+})
+router.post('/post',ctx =>{
+    //参考上面
+})
+
+app
+    .use (router.routes ())
+    .use (router.allowedMethods ());
+```
+
+
+
+#### koa-static
+
+#### @koa/multer

@@ -4,7 +4,7 @@
 
 * {
   box-sizing: border-box;
-  font-weight: normal;
+  /* font-weight: normal; */
 }
 
 html,
@@ -70,11 +70,11 @@ img {
   /* width: 100%; */
   -ms-interpolation-mode: bicubic; /* ie7 解决图片缩放失真问题 */
 }
-@media (min-width: 768px) {
-  img{
-    width: 100%;
-  }
-}
+/* @media (min-width: 768px) { */
+/*   img{ */
+/*     width: 100%; */
+/*   } */
+/* } */
 p,
 span {
   word-wrap: break-word;

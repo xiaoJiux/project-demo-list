@@ -2,11 +2,14 @@
 
 /* 公共样式 */
 
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-    /* font-weight: normal; */
 }
-
+:root {
+    scroll-behavior: smooth;
+}
 html,
 body,
 h1,
@@ -39,7 +42,7 @@ body {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     min-height: 100vh;
-}
+} 
 
 ul,
 li {

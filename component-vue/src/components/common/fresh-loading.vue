@@ -1,33 +1,47 @@
 <script lang="ts" setup>
 import { ref } from "vue";
+import { getUserInfo } from "@/api/page/user";
+import nullImg from "@common-img/null.png";
 
 const dataList = ref<any[]>([]);
+/*加载*/
 const loading = ref<boolean>(false);
+/*完成*/
 const finished = ref<boolean>(false);
+/*刷新*/
 const refreshing = ref<boolean>(false);
 
-const resFn = new Promise((res, rej) => {
-	let testData: any[] = [];
-	setTimeout(() => {
-		testData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1];
-		loading.value = false;
-		res(testData);
-	}, 15000);
-	// rej();
-});
+//翻页
+const page = 1;
+const limit = 10;
+
+const props = defineProps<{
+	option: {
+		api: Promise<Data<unknown>>;
+	};
+}>();
+
+const requestFn = async (page: number, limit: number) => {
+	const res = await getUserInfo({ page, limit });
+	dataList.value = [...(res.resultdata.data as any[]), ...dataList.value];
+	loading.value = false;
+};
 
 async function onLoad() {
+	console.log("加载了");
 	/*刷新后加载数据*/
-	console.log(refreshing.value);
 	if (refreshing.value) {
 		dataList.value = [];
 		refreshing.value = false;
 	}
+	await requestFn(page, limit);
 	// 异步更新数据
 	// setTimeout 仅做示例，真实场景中一般为 ajax 请求
-	const res = await resFn;
-	dataList.value = [...dataList.value, ...res];
 	loading.value = false;
+
+	if (dataList.value.length > 60) {
+		finished.value = true;
+	}
 }
 
 /*刷新*/
@@ -45,7 +59,8 @@ async function onRefresh() {
 <template>
 	<van-pull-refresh v-model="refreshing" @refresh="onRefresh">
 		<van-list v-model:loading="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
-			<van-cell v-for="item in dataList" :key="item" :title="item" />
+			<slot v-if="dataList.length" :datalist="dataList"></slot>
+			<van-image :src="nullImg" />
 		</van-list>
 	</van-pull-refresh>
 </template>

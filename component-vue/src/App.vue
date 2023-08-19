@@ -3,7 +3,9 @@ import FreshLoading from "@/components/common/fresh-loading.vue";
 import { getUserInfo } from "@/api/page/user";
 
 const opt = {
-	api: getUserInfo()
+	api: getUserInfo(),
+	page: 2,
+	limit: 10
 };
 </script>
 

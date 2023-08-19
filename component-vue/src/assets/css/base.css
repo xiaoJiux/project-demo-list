@@ -7,7 +7,7 @@
 
 * {
     box-sizing: border-box;
-    overscroll-behavior: contain;/*防止父级过度滚动*/
+    overscroll-behavior: contain; /*防止父级过度滚动*/
 }
 
 html,
@@ -42,6 +42,7 @@ body {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     min-height: 100vh;
+    background-color: rgba(246 246 246);
 }
 
 ul,

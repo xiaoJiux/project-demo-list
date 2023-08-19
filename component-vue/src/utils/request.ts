@@ -1,6 +1,8 @@
 import type { AxiosRequestConfig, AxiosResponse, Method } from "axios";
 import axios from "axios";
 import { getEnvValue } from "@/utils/env";
+import "vant/es/toast/style";
+import { showFailToast } from "vant";
 
 const Axios = axios.create({
 	baseURL: getEnvValue("VITE_BASE_URL"),
@@ -25,6 +27,7 @@ Axios.interceptors.response.use(
 	function (error) {
 		// 超出 2xx 范围的状态码都会触发该函数。
 		// 对响应错误做点什么
+		showFailToast("服务器出错了!");
 		return Promise.reject(error);
 	}
 );

@@ -5,7 +5,7 @@ if (status === 0 || status === 1 || status === 2 || status === 3) {
 }
 // =>
 
-if ([0, 1, 2, 3].includes(status)) {
+if([0, 1, 2, 3].includes(status)) {
   console.log('按钮可以点击');
 } else {
   console.log("没有用啊")
@@ -47,19 +47,3 @@ for ( let i = 0; i < 10000; i++ ) {
 for ( let i = 0; i < 1e4; i++ ) {
   console.log(i)
 }
-
-// 参数默认值
-// 优化前
-function add(test1, test2) {
-  if (test1 === undefined) {
-    test1 = 1;
-  }
-  if (test2 === undefined) {
-    test2 = 2;
-  }
-  return test1 + test2;
-}
-
-// 优化后
-add = (test1 = 1, test2 = 2) => test1 + test2;
-add();

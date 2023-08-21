@@ -33,7 +33,20 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
 		},
 		css: {
 			postcss: {
-				plugins: [require("tailwindcss"), require("autoprefixer")]
+				plugins: [
+					require("postcss-pxtorem")({
+						rootValue: 192.0,
+						unitPrecision: 5,
+						propList: ["*"],
+						selectorBlackList: [],
+						replace: true,
+						mediaQuery: false,
+						minPixelValue: 0,
+						exclude: /node_modules/i
+					}),
+					require("tailwindcss"),
+					require("autoprefixer")
+				]
 			}
 		}
 	};

@@ -8,8 +8,12 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     FreshLoading: typeof import('./src/components/common/fresh-loading.vue')['default']
+    PageContainer: typeof import('./src/components/common/page-container.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    VanImage: typeof import('vant/es')['Image']
+    VanList: typeof import('vant/es')['List']
+    VanPullRefresh: typeof import('vant/es')['PullRefresh']
     VanTabbar: typeof import('vant/es')['Tabbar']
     VanTabbarItem: typeof import('vant/es')['TabbarItem']
   }

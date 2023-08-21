@@ -5,14 +5,15 @@
 #### koa-body
 
 ```tsx
-#安装 npm install koa-body
+#安装 npm i @koa/bodyparser --save
 
 const Koa = require('koa');
-const { koaBody } = require('koa-body');
+const { bodyParser } = require("@koa/bodyparser");
+
 
 const app = new Koa();
 
-app.use(koaBody());
+app.use(bodyParser());
 app.use((ctx) => {
   ctx.body = `Request Body: ${JSON.stringify(ctx.request.body)}`;
 });

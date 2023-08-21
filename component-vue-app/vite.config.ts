@@ -8,6 +8,7 @@ import { fileURLToPath } from "url";
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
 	const root = process.cwd();
 	const env = loadEnv(mode, root);
+	console.log(env.VITE_BASE_URL);
 	return {
 		plugins: [
 			vue(),
@@ -23,6 +24,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
 			}
 		},
 		server: {
+			host: true,
 			proxy: {
 				api: {
 					target: env.VITE_BASE_URL,

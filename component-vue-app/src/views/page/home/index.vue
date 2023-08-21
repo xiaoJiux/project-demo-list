@@ -1,17 +1,18 @@
 <script lang="ts" setup>
-let name = "";
-console.log( name );
+import PageContainer from "@/components/common/page-container.vue";
+import { ref } from "vue";
+import { getUserInfo } from "@/api/page/user";
+
+const state = ref<IstateList>({
+	api: getUserInfo()
+});
 </script>
 
 <template>
-  <div class="btn-box bg-cyan-900 py-0.5">
-	<div class="text-center text-lime-800"></div>
-  </div>
-  <div class="text-center">4646565</div>
+	<page-container :state="state" tabber>
+		<div>这里是默认内容</div>
+		<template #list="data"></template>
+	</page-container>
 </template>
 
-<style lang="scss" scoped>
-.num {
-  font-size: 16px;
-}
-</style>
+<style lang="scss" scoped></style>

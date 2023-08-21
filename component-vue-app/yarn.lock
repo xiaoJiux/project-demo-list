@@ -865,11 +865,6 @@ ajv@^6.12.4:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-amfe-flexible@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.npmmirror.com/amfe-flexible/-/amfe-flexible-2.2.1.tgz#353f00289e4d38ca88a21eb3854420308af0b559"
-  integrity sha512-L2VfvDzoETBjhRptg5u/IUuzHSuxm22JpSRb404p/TBGeRfwWmmNEbB+TFPIP/sS/+pbM18bCFH9QnMojLuPNw==
-
 ansi-regex@^5.0.1:
   version "5.0.1"
   resolved "https://registry.npmmirror.com/ansi-regex/-/ansi-regex-5.0.1.tgz#082cb2c89c9fe8659a311a53bd6a4dc5301db304"
@@ -1186,6 +1181,11 @@ csstype@^3.1.1:
   version "3.1.2"
   resolved "https://registry.npmmirror.com/csstype/-/csstype-3.1.2.tgz#1d4bf9d572f11c14031f0436e1c10bc1f571f50b"
   integrity sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==
+
+dayjs@^1.11.9:
+  version "1.11.9"
+  resolved "https://registry.npmmirror.com/dayjs/-/dayjs-1.11.9.tgz#9ca491933fadd0a60a2c19f6c237c03517d71d1a"
+  integrity sha512-QvzAURSbQ0pKdIye2txOzNaHmxtUBXerpY0FJsFXUMKbIZeFm5ht1LS/jFsrncjnmtv8HsG0W2g6c0zUjZWmpA==
 
 de-indent@^1.0.2:
   version "1.0.2"

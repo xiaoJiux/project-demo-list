@@ -35,7 +35,6 @@ const requestFn = async () => {
 };
 
 async function onLoad() {
-	console.log("触发");
 	setTimeout(() => {
 		/*刷新后加载数据*/
 		if (refreshing.value) {
@@ -43,6 +42,7 @@ async function onLoad() {
 		}
 
 		requestFn().catch(err => {
+			console.warn(err);
 			nullState.value = true;
 		});
 

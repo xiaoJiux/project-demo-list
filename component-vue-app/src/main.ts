@@ -1,12 +1,10 @@
-import "./assets/main.css";
-import "tailwindcss/tailwind.css";
 import { createApp } from "vue";
 import { createPinia } from "pinia";
-import "amfe-flexible";
 import "../mock/index.js";
-
 import App from "./App.vue";
 import router from "./router";
+import "amfe-flexible";
+import "tailwindcss/tailwind.css";
 
 const app = createApp(App);
 

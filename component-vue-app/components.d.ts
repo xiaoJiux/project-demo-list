@@ -23,6 +23,8 @@ declare module 'vue' {
     VanList: typeof import('vant/es')['List']
     VanLoading: typeof import('vant/es')['Loading']
     VanPullRefresh: typeof import('vant/es')['PullRefresh']
+    VanTabbar: typeof import('vant/es')['Tabbar']
+    VanTabbarItem: typeof import('vant/es')['TabbarItem']
     WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']
   }
 }

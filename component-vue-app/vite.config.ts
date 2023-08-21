@@ -13,9 +13,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
 			vue(),
 			Components({
 				resolvers: [VantResolver()]
-			}),
-			require("tailwindcss"),
-			require("autoprefixer")
+			})
 		],
 		resolve: {
 			alias: {
@@ -37,7 +35,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
 			postcss: {
 				plugins: [
 					require("postcss-pxtorem")({
-						rootValue: 192,
+						rootValue: 192.0,
 						unitPrecision: 5,
 						propList: ["*"],
 						selectorBlackList: [],
@@ -45,7 +43,9 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
 						mediaQuery: false,
 						minPixelValue: 0,
 						exclude: /node_modules/i
-					})
+					}),
+					require("tailwindcss"),
+					require("autoprefixer")
 				]
 			}
 		}

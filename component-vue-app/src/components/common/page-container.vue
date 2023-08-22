@@ -4,17 +4,18 @@
  * */
 import { ref } from "vue";
 import nullImg from "@common-img/null.png";
+import { state } from "vue-tsc/out/shared";
 
 const props = withDefaults(
 	defineProps<{
 		/*是否空出底部tabbar*/
 		tabber: boolean;
 		/*如果是懒加载列表(默认false)*/
-		state?: IstateList | false;
+		state?: IstateList | undefined;
 	}>(),
 	{
 		tabber: true,
-		state: false
+		state: undefined
 	}
 );
 const dataList = ref<any[]>([]);
@@ -27,16 +28,26 @@ const refreshing = ref<boolean>(false);
 /*空*/
 const nullState = ref<boolean>(false);
 
-const page = ref(1);
-const limit = ref(10);
+const page = ref(props.state?.page || 1);
+const limit = ref(props.state?.limit || 10);
 
 /*数据加载*/
 async function requestData() {
 	const state = <IstateList>props.state;
+
 	/*刷新状态*/
 	if (refreshing.value) {
-		await state.api({ page: page.value, limit: limit.value });
+		refreshing.value = false;
+		/*重置page,limit*/
+		limit.value = <number>props.state?.limit;
+		page.value = <number>props.state?.page;
+		dataList.value = [];
 	}
+	const res = await state.api({ page: page.value, limit: limit.value });
+	loading.value = false;
+	dataList.value = [...dataList.value, ...(<any[]>res.data)];
+	/*下一页*/
+	page.value++;
 }
 
 /*刷新*/
@@ -64,11 +75,11 @@ const onRefresh = () => {
 					<van-list
 						v-model:loading="loading"
 						:finished="finished"
-						:offset="300"
+						:offset="50"
 						finished-text="没有更多了"
 						@load="requestData"
 					>
-						<slot v-if="!nullState" :list="dataList" name="list"></slot>
+						<slot v-if="!nullState" :dataList="dataList" name="list"></slot>
 						<van-image v-else :src="nullImg" />
 					</van-list>
 				</van-pull-refresh>

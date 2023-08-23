@@ -1,5 +1,7 @@
 <script lang="ts" setup></script>
 
-<template></template>
+<template>
+	<div class="error">Error</div>
+</template>
 
 <style lang="scss" scoped></style>

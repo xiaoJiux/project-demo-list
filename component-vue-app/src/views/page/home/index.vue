@@ -13,7 +13,9 @@ const state = ref<IstateList>({
 	<page-container :state="state" tabber>
 		<div>这里是默认内容</div>
 		<template #list="{ dataList }">
-			<div v-for="item in dataList" :key="item" class="item">{{ item }}</div>
+			<div v-for="(item, index) in dataList" :key="index" class="item">
+				{{ item }}
+			</div>
 		</template>
 	</page-container>
 </template>
@@ -22,6 +24,5 @@ const state = ref<IstateList>({
 .item {
 	font-size: 18px;
 	padding: 12px 6px;
-	border-bottom: 1px solid black;
 }
 </style>

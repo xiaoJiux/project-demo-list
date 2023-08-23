@@ -83,7 +83,6 @@ const onRefresh = () => {
 						<van-image v-else :src="nullImg" />
 					</van-list>
 				</van-pull-refresh>
-				<!--				<slot :list="dataList" name="list"></slot>-->
 			</div>
 		</div>
 		<div v-if="tabber" class="empty"></div>

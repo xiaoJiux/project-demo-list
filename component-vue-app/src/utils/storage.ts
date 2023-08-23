@@ -21,3 +21,31 @@ export const removeStorage = (key: string) => {
 export const clearStorage = () => {
 	localStorage.clear();
 };
+
+/*保存session*/
+export const setSession = (key: string, val: any) => {
+	sessionStorage.setItem(key, JSON.stringify(val));
+};
+
+/*获取session*/
+export const getSession = (key: string) => {
+	return JSON.parse(<string>sessionStorage.getItem(key));
+};
+
+/*移除session*/
+export const removeSession = (key: string) => {
+	sessionStorage.removeItem(key);
+};
+
+/*清除session*/
+export const clearSession = () => {
+	sessionStorage.clear();
+};
+
+/*获取url参数*/
+export const getUrlParam = (name: string) => {
+	const reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+	const r = window.location.search.substr(1).match(reg);
+	if (r != null) return unescape(r[2]);
+	return null;
+};

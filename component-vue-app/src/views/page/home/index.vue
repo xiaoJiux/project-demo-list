@@ -14,7 +14,7 @@ const state = ref<IstateList>({
 		<div>这里是默认内容</div>
 		<template #list="{ dataList }">
 			<div v-for="(item, index) in dataList" :key="index" class="item">
-				{{ item }}
+				{{ item * index }}
 			</div>
 		</template>
 	</page-container>

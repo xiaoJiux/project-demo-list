@@ -4,7 +4,7 @@
 	<RouterView />
 	<van-tabbar route>
 		<van-tabbar-item icon="home-o" replace to="/home">home</van-tabbar-item>
-		<van-tabbar-item icon="search" replace to="/user">user</van-tabbar-item>
+		<van-tabbar-item icon="search" replace to="/personal">personal</van-tabbar-item>
 	</van-tabbar>
 </template>
 

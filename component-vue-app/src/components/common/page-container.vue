@@ -18,13 +18,19 @@ const props = withDefaults(
 		state: undefined
 	}
 );
+
+/*传递给父组件数据*/
 const dataList = ref<any[]>([]);
+
 /*加载*/
 const loading = ref<boolean>(false);
+
 /*完成*/
 const finished = ref<boolean>(false);
+
 /*刷新*/
 const refreshing = ref<boolean>(false);
+
 /*空*/
 const nullState = ref<boolean>(false);
 

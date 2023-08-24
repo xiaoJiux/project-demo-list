@@ -17,11 +17,6 @@ const router: Router = createRouter({
 			component: () => import("@/views/error/index.vue")
 		},
 		{
-			path: "/loading",
-			name: "Loading",
-			component: () => import("@/views/loading/index.vue")
-		},
-		{
 			path: "/personal",
 			name: "Personal",
 			component: () => import("@/views/page/personal/index.vue")

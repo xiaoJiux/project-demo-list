@@ -45,8 +45,8 @@ async function requestData() {
 	if (refreshing.value) {
 		refreshing.value = false;
 		/*重置page,limit*/
-		limit.value = <number>props.state?.limit;
-		page.value = <number>props.state?.page;
+		limit.value = <number>props.state?.limit || 10;
+		page.value = <number>props.state?.page || 1;
 		dataList.value = [];
 	}
 	const res = await state.api({ page: page.value, limit: limit.value });

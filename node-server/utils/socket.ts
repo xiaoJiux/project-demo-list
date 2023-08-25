@@ -8,15 +8,11 @@ export const socketServer = () => {
   const io = new Server( httpServer, {
     /* options */
     cors: {
+      // 允许跨域
       origin: "*",
       methods: [ "GET", "POST" ],
     },
     cookie: true,
-  } );
-
-  io.on( "connection", ( socket ) => {
-    // ...
-    console.log( socket )
   } );
 
   httpServer.listen( 3001, () => {

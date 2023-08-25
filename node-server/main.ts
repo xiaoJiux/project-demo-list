@@ -10,6 +10,20 @@ app.use( bodyParser() )
     .use( router.middleware() )
 
 app.listen( 3000, () => {
-  console.log( "server run 3000" );
   socketServer()
+      .on( "connection", ( socket ) => {
+        socket.on( "join", ( data ) => {
+
+          const roomID = "123456"
+          socket.join( roomID )
+
+          socket.to( roomID ).emit( "packet", {
+            name: "admin",
+            content: `${ data.name } has joined`,
+          } );
+
+          socket.on( "disconnect", () => {
+          } )
+        } )
+      } )
 } )

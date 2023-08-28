@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import { onUnmounted, ref } from "vue";
 
 const msg = ref("");
-const socket = io("http://192.168.10.29:3001");
+const socket = io("http://127.0.0.1:3001");
 const chartList = ref<string[]>([]);
 
 socket.on("connect", () => {
@@ -53,7 +53,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-	<div class="personal text-center text-xl">
+	<div class="chat text-center text-xl">
 		<div v-for="(item, index) in chartList" :key="index" class="text-center text-xl font-sans">{{ item }}</div>
 		<div class="input">
 			<input v-model="msg" placeholder="输入" type="text" />
@@ -62,8 +62,4 @@ onUnmounted(() => {
 	</div>
 </template>
 
-<style lang="scss" scoped>
-.personal {
-	background-color: #fff;
-}
-</style>
+<style lang="scss" scoped></style>

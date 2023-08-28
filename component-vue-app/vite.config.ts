@@ -1,14 +1,13 @@
 import Components from "unplugin-vue-components/vite";
 import { VantResolver } from "unplugin-vue-components/resolvers";
-import { ConfigEnv, defineConfig, loadEnv, UserConfig } from "vite";
+import { ConfigEnv, defineConfig, UserConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { fileURLToPath } from "url";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
-	const root = process.cwd();
-	const env = loadEnv(mode, root);
-
+	// const root = process.cwd();
+	// const env = loadEnv(mode, root);
 	return {
 		plugins: [
 			vue(),
@@ -20,7 +19,8 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
 			alias: {
 				"@": fileURLToPath(new URL("./src", import.meta.url)),
 				"@img": fileURLToPath(new URL("./src/assets/img", import.meta.url)),
-				"@common-img": fileURLToPath(new URL("./src/assets/common-img", import.meta.url))
+				"@common-img": fileURLToPath(new URL("./src/assets/common-img", import.meta.url)),
+				"@type": fileURLToPath(new URL("./src/types", import.meta.url))
 			}
 		},
 		server: {

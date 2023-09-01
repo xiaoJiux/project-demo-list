@@ -1,7 +1,8 @@
 import type { Router } from "vue-router";
 import { createRouter, createWebHistory } from "vue-router";
-import { getStorage } from "@/utils/storage";
+import { testRouter } from "@/router/module/home";
 
+console.log(testRouter);
 const router: Router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
@@ -10,6 +11,11 @@ const router: Router = createRouter({
 			name: "Home",
 			alias: "/home",
 			component: () => import("@/views/page/home/index.vue")
+		},
+		{
+			path: "/test",
+			name: "Test",
+			children: [...testRouter]
 		},
 		{
 			path: "/error",
@@ -24,16 +30,16 @@ const router: Router = createRouter({
 	]
 });
 /*拦截器拦截错误跳转*/
-router.beforeEach((to, from, next) => {
-	const routes = router.getRoutes().map(item => item.path);
-	/*判断是否登录*/
-	if (getStorage("userInfo")) {
-		return next();
-	}
-	if (routes.includes(to.path)) {
-		next();
-	} else {
-		return next({ path: "/error" });
-	}
-});
+// router.beforeEach((to, from, next) => {
+// 	const routes = router.getRoutes().map(item => item.path);
+// 	/*判断是否登录*/
+// 	if (getStorage("userInfo")) {
+// 		return next();
+// 	}
+// 	if (routes.includes(to.path)) {
+// 		next();
+// 	} else {
+// 		return next({ path: "/error" });
+// 	}
+// });
 export default router;

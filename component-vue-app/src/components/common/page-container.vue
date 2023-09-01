@@ -31,7 +31,7 @@ const finished = ref<boolean>(false);
 /*刷新*/
 const refreshing = ref<boolean>(false);
 
-/*空*/
+/*是否为空状态*/
 const nullState = ref<boolean>(false);
 
 const page = ref(props.state?.page || 1);
@@ -49,7 +49,10 @@ async function requestData() {
 		page.value = <number>props.state?.page || 1;
 		dataList.value = [];
 	}
+
+	/*请求接口*/
 	const res = await state.api({ page: page.value, limit: limit.value });
+
 	loading.value = false;
 	dataList.value = [...dataList.value, ...(<any[]>res.data)];
 	/*下一页*/

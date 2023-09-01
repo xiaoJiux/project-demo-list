@@ -1,7 +1,4 @@
 <script lang="ts" setup>
-/**
- * @param tabber 是否空出底部tabbar
- * */
 import { ref } from "vue";
 import nullImg from "@common-img/null.png";
 import { state } from "vue-tsc/out/shared";

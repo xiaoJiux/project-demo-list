@@ -20,14 +20,25 @@
 	width: 100vw;
 	overflow-x: clip;
 	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media (max-width: 768px) {
+	#load {
+		width: 80% !important;
+
+		& > div {
+			font-size: 18px !important;
+		}
+	}
 }
 
 #load {
 	position: absolute;
-	width: 80%;
+	width: 40%;
 	height: 36px;
-	left: 0;
-	top: 40%;
 	overflow: visible;
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -41,7 +52,7 @@
 	width: 20px;
 	height: 36px;
 	opacity: 0;
-	font-size: 18px;
+	font-size: 28px;
 	font-family: Helvetica, Arial, sans-serif;
 	animation: move 2s linear infinite;
 	-o-animation: move 2s linear infinite;

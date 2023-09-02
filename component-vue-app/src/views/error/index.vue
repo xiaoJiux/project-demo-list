@@ -4,4 +4,8 @@
 	<div class="error"></div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.error {
+	width: 100vw;
+}
+</style>

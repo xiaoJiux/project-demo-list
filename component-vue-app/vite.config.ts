@@ -34,8 +34,14 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
 			}
 		},
 		css: {
+			devSourcemap: true,
 			postcss: {
 				plugins: [require("tailwindcss"), require("autoprefixer")]
+			},
+			preprocessorOptions: {
+				scss: {
+					additionalData: `@import "@/assets/css/variables.scss";`
+				}
 			}
 		}
 	};

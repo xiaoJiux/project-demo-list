@@ -3,6 +3,12 @@
   "compilerOptions": {
     "module": "ES2022"
   },
+  "include": [
+    "./src/**/*.ts",
+    "./*.d.ts",
+    "./auto-imports.d.ts"
+    // 导入配置文件
+  ],
   "references": [
     {
       "path": "./tsconfig.node.json"

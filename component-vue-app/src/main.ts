@@ -4,6 +4,7 @@ import "../mock/index.js";
 import App from "./App.vue";
 import router from "./router";
 import "tailwindcss/tailwind.css";
+import "vant/lib/index.css";
 
 const app = createApp(App);
 

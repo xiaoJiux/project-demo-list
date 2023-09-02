@@ -3,7 +3,7 @@ import { VantResolver } from "unplugin-vue-components/resolvers";
 import { ConfigEnv, defineConfig, UserConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { fileURLToPath } from "url";
-
+import AutoImport from "unplugin-auto-import/vite";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
 	// const root = process.cwd();
@@ -11,8 +11,14 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
 	return {
 		plugins: [
 			vue(),
+			AutoImport({
+				resolvers: [VantResolver()],
+				imports: ["vue"],
+				dts: "./src/auto-imports.d.ts"
+			}),
 			Components({
-				resolvers: [VantResolver()]
+				resolvers: [VantResolver()],
+				dirs: ["src/components", "src/api"]
 			})
 		],
 		resolve: {

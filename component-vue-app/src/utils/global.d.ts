@@ -16,7 +16,8 @@ declare interface IstateList {
  * @param code 响应码
  * @param data 数据
  * */
-declare interface IstateData<T> {
+declare interface IData<T> {
 	code: number;
+	msg?: string;
 	data: T;
 }

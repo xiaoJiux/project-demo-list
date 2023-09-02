@@ -6,7 +6,6 @@ declare interface ViteEnv {
 }
 
 //再次对请求方法封装
-
 declare type Data<T> = {
 	code: number;
 	data: T;
